@@ -33,6 +33,7 @@ public class TCPEchoClient {
             Scanner input = new Scanner(link.getInputStream());
             PrintWriter output = new PrintWriter(link.getOutputStream(),true);
 
+            //set up a stream for keyboard entry
             try (Scanner userEntry = new Scanner(System.in)) {
                 String message,response;
 
@@ -40,7 +41,9 @@ public class TCPEchoClient {
                     System.out.println("Enter a message:");
                     message = userEntry.nextLine();
 
+                    // Take user input messages and sends them to the server for echoing.
                     output.println(message); 
+
                     response = input.nextLine();
 
                     System.out.println("\nSERVER>" + response);

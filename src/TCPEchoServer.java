@@ -41,12 +41,14 @@ public class TCPEchoServer{
             PrintWriter output = new PrintWriter(link.getOutputStream(),true);
 
             int numMessages=0;
+            // receiving data [STEP 4]
             String message = input.nextLine();
 
             while (!message.equals("***CLOSE***")) {
                 System.out.println("Message received");
 
                 numMessages++;
+                // sending data [STEP 4]
                 output.println("Message " + numMessages + ":" + message); 
                 message = input.nextLine();
                 
